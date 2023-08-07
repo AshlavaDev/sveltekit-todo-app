@@ -1,4 +1,0 @@
-[[plugins]]
-  package = "netlify-plugin-one"
-  [plugins.inputs]
-    include = ["./backend/todo-database.sqlite"]
