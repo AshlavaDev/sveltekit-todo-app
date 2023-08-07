@@ -1,8 +1,8 @@
 const { updateTodo } = require('../../controller');
 
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   try {
-    const { id } = event.queryStringParameters;
+    const { id } = event.params.id;
     const requestBody = JSON.parse(event.body);
 
     const updatedTodo = await updateTodo(id, requestBody);

@@ -73,3 +73,7 @@ exports.deleteTodo = async (id) => {
     });
   });
 };
+
+process.on('exit', () => {
+  db.close();
+});

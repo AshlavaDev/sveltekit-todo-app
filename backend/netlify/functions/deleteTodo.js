@@ -1,8 +1,8 @@
 const { deleteTodo } = require('../../controller');
 
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   try {
-    const { id } = event.queryStringParameters; 
+    const { id } = event.params.id; 
 
     await deleteTodo(id);
 
