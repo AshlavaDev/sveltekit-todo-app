@@ -2,12 +2,12 @@ const { deleteTodo } = require('../../controller');
 
 exports.handler = async (event, context) => {
   try {
-    const { id } = event.queryStringParameters; // Get the todo ID from the query string
+    const { id } = event.queryStringParameters; 
 
     await deleteTodo(id);
 
     return {
-      statusCode: 204, // 204 No Content
+      statusCode: 204,
     };
   } catch (error) {
     return {
