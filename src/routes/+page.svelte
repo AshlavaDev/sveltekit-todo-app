@@ -10,7 +10,6 @@
 
   let toDoList = [];
   let emptyList;
-  process.env.DATABASE_CREATED = 'true';
 
   async function loadList() {
     toDoList = await fetchTodos();
