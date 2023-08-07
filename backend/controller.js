@@ -5,7 +5,7 @@ const dbPath = path.resolve(__dirname, 'todo-database.sqlite');
 const db = new sqlite3.Database(dbPath);
 process.env.DATABASE_CREATED = 'true';
 
-exports.getTodos = async (event, context) => {
+exports.getTodos = async () => {
   return new Promise((resolve, reject) => {
     db.all('SELECT * FROM todos', (err, rows) => {
       if (err) {

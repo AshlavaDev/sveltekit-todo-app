@@ -1,6 +1,6 @@
 const { createTodo } = require('../../controller');
 
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   try {
     const requestBody = JSON.parse(event.body);
     const newTodo = await createTodo(requestBody);
