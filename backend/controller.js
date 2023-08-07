@@ -1,5 +1,8 @@
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('todo-database.sqlite');
+
+const path = require('path');
+const dbPath = path.resolve(__dirname, 'todo-database.sqlite');
+const db = new sqlite3.Database(dbPath);
 process.env.DATABASE_CREATED = 'true';
 
 exports.getTodos = async (event, context) => {
