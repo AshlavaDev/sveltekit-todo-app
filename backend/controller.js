@@ -18,7 +18,7 @@ exports.getTodos = (req, res) => {
 // Controller function to create a todo
 exports.createTodo = (req, res) => {
   const { content, editing, checked } = req.body;
-  db.run('INSERT INTO todos (content) VALUES (?)',
+  db.run('INSERT INTO todos (content, editing, checked) VALUES (?, ?, ?)',
   [content, editing, checked],
   err => {
     if (err) {
@@ -34,7 +34,7 @@ exports.createTodo = (req, res) => {
 exports.updateTodo = (req, res) => {
   const { content, editing, checked } = req.body;
   const { id } = req.params;
-  db.run('UPDATE todos SET content = ? WHERE id = ?',
+  db.run('UPDATE todos SET content = ?, editing = ?, checked = ? WHERE id = ?',
   [content, editing, checked, id],
   err => {
     if (err) {

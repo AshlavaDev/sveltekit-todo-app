@@ -4,22 +4,41 @@
 </svelte:head>
 
 <script>
+  import { onMount } from "svelte";
 	import ToDoList from "../components/ToDoList.svelte";
+  import { fetchTodos, createTodo } from "../api/todos.js";
 
-  let toDoList = [
- 
-  ];
+  let toDoList = [];
+  let emptyList;
 
-  function addTask() {
+  async function loadList() {
+    toDoList = await fetchTodos();
+
+    if (toDoList.length === 0) {
+      emptyList = true;
+    } else {
+      emptyList = false;
+    }
+  };
+
+  async function updateList() {
+    await loadList();
+  };
+
+  async function addTask() {
     const input = document.querySelector(".input-task");
     const task = {
       content: input.value,
       editing: false,
       checked: false
     };
-    toDoList = [...toDoList, task];
+    
+    await createTodo(task);
+    updateList();
     input.value = "";
-  }
+  };
+
+  onMount(loadList);
 
 </script>
 
@@ -32,7 +51,8 @@
   </div>
 </div>
 
-<ToDoList />
+<ToDoList bind:todos={toDoList} updateList={updateList}/>
+
 
 <style>
 
