@@ -8,9 +8,9 @@ export async function createTodo(todo) {
   const response = await fetch(`/netlify/functions/createTodo`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(todo),
+    body: JSON.stringify(todo)
   });
 
   if (!response.ok) {
@@ -24,9 +24,9 @@ export async function updateTodo(id, updatedTodo) {
   const response = await fetch(`/netlify/functions/updateTodo/${id}`, {
     method: 'PUT',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(updatedTodo),
+    body: JSON.stringify(updatedTodo)
   });
 
   if (!response.ok) {
@@ -38,7 +38,7 @@ export async function updateTodo(id, updatedTodo) {
 
 export async function deleteTodo(id) {
   const response = await fetch(`netlify/functions/deleteTodo/${id}`, {
-    method: 'DELETE',
+    method: 'DELETE'
   });
 
   if (!response.ok) {
