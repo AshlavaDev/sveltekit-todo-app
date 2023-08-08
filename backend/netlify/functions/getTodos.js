@@ -1,4 +1,4 @@
-const { getTodos } = require('/controller');
+const { getTodos } = require('./controller');
 
 exports.handler = async (event, context) => {
   try {
