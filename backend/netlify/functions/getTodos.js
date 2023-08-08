@@ -1,4 +1,6 @@
-const { getTodos } = require('../../controller');
+const { getTodos } = require('./controller');
+
+console.log("testing... getTodos.js");
 
 exports.handler = async (event, context) => {
   try {

@@ -21,7 +21,7 @@ export async function createTodo(todo) {
 }
 
 export async function updateTodo(id, updatedTodo) {
-  const response = await fetch(`/.netlify/functions/updateTodo/todos/${id}`, {
+  const response = await fetch(`/.netlify/functions/updateTodo/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
