@@ -1,12 +1,11 @@
 export async function fetchTodos() {
-  const response = await fetch(`/.netlify/functions/getTodos`);
-  console.log("testing... fetchTodos() and got them");
+  const response = await fetch(`/netlify/functions/getTodos`);
   const data = await response.json();
   return data;
 }
 
 export async function createTodo(todo) {
-  const response = await fetch(`.netlify/functions/createTodo`, {
+  const response = await fetch(`/netlify/functions/createTodo`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -22,7 +21,7 @@ export async function createTodo(todo) {
 }
 
 export async function updateTodo(id, updatedTodo) {
-  const response = await fetch(`/.netlify/functions/updateTodo/${id}`, {
+  const response = await fetch(`/netlify/functions/updateTodo/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -38,7 +37,7 @@ export async function updateTodo(id, updatedTodo) {
 }
 
 export async function deleteTodo(id) {
-  const response = await fetch(`.netlify/functions/deleteTodo/${id}`, {
+  const response = await fetch(`netlify/functions/deleteTodo/${id}`, {
     method: 'DELETE',
   });
 
