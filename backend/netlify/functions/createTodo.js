@@ -1,4 +1,4 @@
-const { createTodo } = require('../../controller');
+const { createTodo } = require('./controller');
 
 exports.handler = async (event) => {
   try {
