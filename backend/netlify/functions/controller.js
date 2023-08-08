@@ -1,5 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
-
+console.log("Get database");
 const db = new sqlite3.Database('../../tododatabase.sqlite');
 console.log("Got database");
 
