@@ -7,12 +7,12 @@ exports.handler = async (event) => {
     await deleteTodo(id);
 
     return {
-      statusCode: 204,
+      statusCode: 204
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Internal Server Error' }),
+      body: JSON.stringify({ error: 'Internal Server Error' })
     };
   }
 };

@@ -20,7 +20,7 @@ exports.getTodos =() => {
         console.log("Test getter success");
         resolve({
           statusCode: 200,
-          body: JSON.stringify(rows),
+          body: JSON.stringify(rows)
         });
       }
     });
