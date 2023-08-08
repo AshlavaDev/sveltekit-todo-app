@@ -6,7 +6,7 @@
 <script>
   import { onMount } from "svelte";
 	import ToDoList from "../components/ToDoList.svelte";
-  import { fetchTodos, createTodo } from "../api/todos.js";
+  import { fetchTodos, createTodo } from "../api/mongoose.js";
 
   let toDoList = [];
   let emptyList;

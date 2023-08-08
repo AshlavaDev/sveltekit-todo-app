@@ -1,5 +1,5 @@
 <script>
-  import { updateTodo, deleteTodo } from "../api/todos.js";
+  import { updateTodo, deleteTodo } from "../api/mongoose.js";
 
   export let item;
   export let deleteTask;

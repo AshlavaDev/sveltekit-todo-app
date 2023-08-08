@@ -1,11 +1,16 @@
+// connects to the mongoose backend url
+
+const url = import.meta.env.DATABASE_URL;
+url.append('/.netlify/functions/');
+
 export async function fetchTodos() {
-  const response = await fetch(`backend/netlify/functions/getTodos`);
+  const response = await fetch(`${url}getTodos`);
   const data = await response.json();
   return data;
 }
 
 export async function createTodo(todo) {
-  const response = await fetch(`/netlify/functions/createTodo`, {
+  const response = await fetch(`${url}createTodo`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -21,7 +26,7 @@ export async function createTodo(todo) {
 }
 
 export async function updateTodo(id, updatedTodo) {
-  const response = await fetch(`/netlify/functions/updateTodo/${id}`, {
+  const response = await fetch(`${url}updateTodo/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -37,7 +42,7 @@ export async function updateTodo(id, updatedTodo) {
 }
 
 export async function deleteTodo(id) {
-  const response = await fetch(`netlify/functions/deleteTodo/${id}`, {
+  const response = await fetch(`${url}/deleteTodo/${id}`, {
     method: 'DELETE'
   });
 
