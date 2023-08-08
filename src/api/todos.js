@@ -1,7 +1,7 @@
 export async function fetchTodos() {
-  console.log("testing... fetchTodos()");
   const response = await fetch(`/.netlify/functions/getTodos`);
   const data = await response.json();
+  console.log("testing... fetchTodos() and got them");
   return data;
 }
 
