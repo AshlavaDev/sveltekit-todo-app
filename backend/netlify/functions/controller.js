@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 console.log("Get database");
-const db = new sqlite3.Database('../../tododatabase.sqlite');
+const db = new sqlite3.Database('./../../tododatabase.sqlite');
 console.log("Got database");
 
 exports.getTodos = async () => {
