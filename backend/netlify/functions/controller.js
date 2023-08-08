@@ -1,8 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 
-const path = require('path');
-const dbPath = path.resolve(__dirname, '../../tododatabase.sqlite');
-const db = new sqlite3.Database(dbPath);
+const db = new sqlite3.Database('../../tododatabase.sqlite');
 
 exports.getTodos = async () => {
   
