@@ -6,12 +6,11 @@ const db = new sqlite3.Database('./../../tododatabase.sqlite', (err) => {
   console.log('Connected to the todos database.');
 });
 
-exports.getTodos = async () => {
-  
+exports.getTodos =() => {
   return new Promise((resolve, reject) => {
-    console.log("Test getter");
-    db.all('SELECT * FROM todos', (err, rows) => {
+    db.all('SELECT * FROM todos', [], (err, rows) => {
       if (err) {
+        console.log(err);
         reject(err);
       } else {
         console.log("Test getter success");
