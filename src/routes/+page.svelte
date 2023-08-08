@@ -1,6 +1,6 @@
 <svelte:head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-  
+  <title>SvelteKit ToDo List</title>
 </svelte:head>
 
 <script>

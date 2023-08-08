@@ -5,12 +5,14 @@ const dbPath = path.resolve(__dirname, '../../tododatabase.sqlite');
 const db = new sqlite3.Database(dbPath);
 
 exports.getTodos = async () => {
-  console.log("Test getter");
+  
   return new Promise((resolve, reject) => {
+    console.log("Test getter");
     db.all('SELECT * FROM todos', (err, rows) => {
       if (err) {
         reject(err);
       } else {
+        console.log("Test getter success");
         resolve({
           statusCode: 200,
           body: JSON.stringify(rows),
