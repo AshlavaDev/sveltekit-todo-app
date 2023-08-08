@@ -10,12 +10,12 @@
 
   async function saveButton() {
     item.editing = false;
-    const updatedToDo = { id: item.id, content: item.content, checked: item.checked, editing: item.editing };
+    const updatedToDo = { _id: item._id, content: item.content, checked: item.checked, editing: item.editing };
     await updateTodo(updatedToDo.id, updatedToDo);
   }
 
   async function deleteButton() {
-    await deleteTodo (item.id);
+    await deleteTodo (item._id);
     deleteTask();
   }
 

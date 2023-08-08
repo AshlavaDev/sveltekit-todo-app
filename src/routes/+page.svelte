@@ -13,7 +13,6 @@
 
   async function loadList() {
     toDoList = await fetchTodos();
-    console.log("got todos");
     if (toDoList.length === 0) {
       emptyList = true;
     } else {

@@ -1,7 +1,10 @@
 // connects to the mongoose backend url
+import { PUBLIC_DATABASE_URL } from '$env/static/public'
 
-const url = import.meta.env.DATABASE_URL;
-url.append('/.netlify/functions/');
+const netlifyFunctionURL = '/.netlify/functions/';
+
+const url = PUBLIC_DATABASE_URL + netlifyFunctionURL;
+console.log(url);
 
 export async function fetchTodos() {
   const response = await fetch(`${url}getTodos`);
@@ -25,8 +28,8 @@ export async function createTodo(todo) {
   return response.json();
 }
 
-export async function updateTodo(id, updatedTodo) {
-  const response = await fetch(`${url}updateTodo/${id}`, {
+export async function updateTodo(_id, updatedTodo) {
+  const response = await fetch(`${url}updateTodo/${_id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -41,8 +44,8 @@ export async function updateTodo(id, updatedTodo) {
   return response.json();
 }
 
-export async function deleteTodo(id) {
-  const response = await fetch(`${url}/deleteTodo/${id}`, {
+export async function deleteTodo(_id) {
+  const response = await fetch(`${url}/deleteTodo/${_id}`, {
     method: 'DELETE'
   });
 
