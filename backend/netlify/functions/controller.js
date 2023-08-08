@@ -1,5 +1,3 @@
-console.log(__dirname);
-
 const sqlite3 = require('sqlite3').verbose();
 
 const path = require('path');
@@ -7,6 +5,7 @@ const dbPath = path.resolve(__dirname, '../../tododatabase.sqlite');
 const db = new sqlite3.Database(dbPath);
 
 exports.getTodos = async () => {
+  console.log("Test getter");
   return new Promise((resolve, reject) => {
     db.all('SELECT * FROM todos', (err, rows) => {
       if (err) {
