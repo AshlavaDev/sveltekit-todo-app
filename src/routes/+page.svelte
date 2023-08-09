@@ -32,7 +32,7 @@
       checked: false
     };
     
-    await createTodo(task);
+    await createTodo(JSON.stringify(task));
     updateList();
     input.value = "";
   };
