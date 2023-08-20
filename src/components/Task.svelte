@@ -37,7 +37,7 @@
 
 </script>
 
-<div class="task">
+<div class="task" class:not-important={!item.priority} class:important={item.priority}>
   {#if item.editing}
     <input type="text" bind:value={item.content} />
     <button class="save-button" on:click={saveButton}>Save</button>
@@ -66,7 +66,19 @@
     align-items: center;
     width: 700px;
     margin: 0 auto;
+    padding: 0.74rem;
     gap: 0.5rem;
+
+  }
+
+  .not-important {
+    border: 1px solid #e1e6eb;
+    border-radius: 1rem;
+  }
+
+  .important {
+    border: 3px solid #e1e6eb;
+    border-radius: 1rem;
   }
 
   .checkboxes {
