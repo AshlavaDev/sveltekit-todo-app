@@ -21,7 +21,16 @@
 
   // Handles completed task functionality
   async function handleCompleted(event) {
+    console.log(item);
     const updatedToDo = { _id: item._id, content: item.content, priority: item.priority, completed: event.target.checked, editing: item.editing };
+    await updateTodo (updatedToDo._id, updatedToDo);
+    deleteTask();
+  }
+
+  // Handles priority task functionality (written after completed functionality)
+  async function handlePriority(event) {
+    console.log(item);
+    const updatedToDo = { _id: item._id, content: item.content, priority: event.target.checked, completed: item.completed, editing: item.editing };
     await updateTodo (updatedToDo._id, updatedToDo);
     deleteTask();
   }
@@ -35,12 +44,12 @@
   {:else}
     <div class="checkboxes">
       <div>
-        <input type="checkbox" bind:checked={item.priority} id="priority"/>
-        <label for="priority">Important</label>
+        <input type="checkbox" bind:checked={item.priority} on:change={handlePriority} id="priority-${item._id}"/>
+        <label for="priority-${item._id}">Important</label>
       </div>
       <div>
-        <input type="checkbox" bind:checked={item.completed} on:change={handleCompleted} id="completed"/>
-        <label for="completed">Completed</label>
+        <input type="checkbox" bind:checked={item.completed} on:change={handleCompleted} id="completed-${item._id}"/>
+        <label for="completed-${item._id}">Completed</label>
       </div>
     </div>
     <h4 class="task-content">{item.content}</h4>

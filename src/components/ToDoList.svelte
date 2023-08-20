@@ -4,6 +4,24 @@
   export let todos;
   export let updateList;
 
+  $: sortedInProgressTodos = todos.filter(item => !item.completed).sort((a, b) => {
+    if (a.priority === true && b.priority !== true) {
+      return -1;
+    } else if (a.priority !== true && b.priority === true) {
+      return 1;
+    }
+    return 0;
+  });
+
+  $: sortedCompletedTodos = todos.filter(item => item.completed).sort((a, b) => {
+    if (a.priority === true && b.priority !== true) {
+      return -1;
+    } else if (a.priority !== true && b.priority === true) {
+      return 1;
+    }
+    return 0;
+  });
+
 </script>
 
 <h2>Current Tasks</h2>
@@ -14,18 +32,14 @@
   <div class="list">
     <div class="sub-list">
       <p class="list-heading">In Progress</p>
-      {#each todos as item}
-        {#if item.completed === false}
-          <Task {item} deleteTask={updateList}/>
-        {/if}
+      {#each sortedInProgressTodos as item}
+        <Task {item} deleteTask={updateList}/>
       {/each}
     </div>
     <div class="sub-list">
       <p class="list-heading">Completed</p>
-      {#each todos as item}
-        {#if item.completed === true}
-          <Task {item} deleteTask={updateList}/>
-        {/if}
+      {#each sortedCompletedTodos as item}
+        <Task {item} deleteTask={updateList}/>
       {/each}
     </div>
   </div>
