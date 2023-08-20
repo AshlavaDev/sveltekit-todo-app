@@ -12,9 +12,22 @@
   <p class="empty">No tasks yet</p>
 {:else}
   <div class="list">
-    {#each todos as item}
-      <Task {item} deleteTask={updateList}/>
-    {/each}
+    <div class="in-progress">
+      <p class="list-heading">In Progress</p>
+      {#each todos as item}
+        {#if item.completed === false}
+          <Task {item} deleteTask={updateList}/>
+        {/if}
+      {/each}
+    </div>
+    <div class="completed">
+      <p class="list-heading">Completed</p>
+      {#each todos as item}
+        {#if item.completed === true}
+          <Task {item} deleteTask={updateList}/>
+        {/if}
+      {/each}
+    </div>
   </div>
 {/if}
 
