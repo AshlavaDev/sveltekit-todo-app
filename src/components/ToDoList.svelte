@@ -32,13 +32,13 @@
   <div class="list">
     <div class="sub-list">
       <p class="list-heading">In Progress</p>
-      {#each sortedInProgressTodos as item}
+      {#each sortedInProgressTodos as item (item._id)}
         <Task {item} deleteTask={updateList}/>
       {/each}
     </div>
     <div class="sub-list">
       <p class="list-heading">Completed</p>
-      {#each sortedCompletedTodos as item}
+      {#each sortedCompletedTodos as item (item._id)}
         <Task {item} deleteTask={updateList}/>
       {/each}
     </div>
