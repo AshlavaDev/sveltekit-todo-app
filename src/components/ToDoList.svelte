@@ -12,7 +12,7 @@
   <p class="empty">No tasks yet</p>
 {:else}
   <div class="list">
-    <div class="in-progress">
+    <div class="sub-list">
       <p class="list-heading">In Progress</p>
       {#each todos as item}
         {#if item.completed === false}
@@ -20,7 +20,7 @@
         {/if}
       {/each}
     </div>
-    <div class="completed">
+    <div class="sub-list">
       <p class="list-heading">Completed</p>
       {#each todos as item}
         {#if item.completed === true}
@@ -46,10 +46,24 @@
     font-weight: 400;
    }
 
-   .list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+  .list {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 2rem;
+   }
+
+  .sub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+   }
+
+   .list-heading {
+    text-align: center;
+    font-size: 1.7rem;
    }
 
 </style>
