@@ -68,6 +68,12 @@
     padding: 1rem 2rem;
    }
 
+   @media (max-width: 700px) {
+     .list {
+       flex-direction: column;
+     }
+   }
+
   .sub-list {
     display: flex;
     flex-direction: column;

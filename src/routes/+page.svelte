@@ -61,6 +61,12 @@
     width: 700px;
   }
 
+  @media (max-width: 700px) {
+    .intro {
+      width: 100%;
+    }
+  }
+
   h2 {
     font-size: 2rem;
     font-weight: 600;

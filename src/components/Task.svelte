@@ -71,6 +71,13 @@
 
   }
 
+  @media (max-width: 700px) {
+    .task {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
   .not-important {
     border: 1px solid #e1e6eb;
     border-radius: 1rem;
@@ -83,6 +90,12 @@
 
   .checkboxes {
     padding-right: 1.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .checkboxes {
+      padding-bottom: 1rem;
+    }
   }
 
   .task-content {
