@@ -11,6 +11,8 @@
   let toDoList = [];
   let emptyList;
 
+  const maxChars = 40;
+
   async function loadList() {
     toDoList = await fetchTodos();
     if (toDoList.length === 0) {
@@ -29,7 +31,8 @@
     const task = {
       content: input.value,
       editing: false,
-      checked: false
+      priority: false,
+      completed: false
     };
     
     await createTodo(JSON.stringify(task));
@@ -44,8 +47,9 @@
 <div class="intro">
   <h2>SvelteKit ToDo List</h2>
   <p>Enter the task</p>
+  <p>Max {maxChars} characters</p>
   <div class="user-input">
-    <input class="input-task" type="text" placeholder="Enter task" />
+    <input class="input-task" type="text" placeholder="Enter task" id="task-input" maxLength={maxChars} />
     <button class="add-button" on:click={addTask}>Add</button>
   </div>
 </div>
