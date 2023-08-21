@@ -52,7 +52,7 @@
         <label for="completed-${item._id}">Completed</label>
       </div>
     </div>
-    <h4 class="task-content">{item.content}</h4>
+    <p class="task-content">{item.content}</p>
     <div class="task-buttons">
       <button class="edit-button" on:click={editButton}>Edit</button>
       <button class="delete-button" on:click={deleteButton}>Delete</button>
@@ -100,6 +100,7 @@
 
   .task-content {
     flex-grow: 1;
+    max-width: 25ch;
   }
 
   button {
